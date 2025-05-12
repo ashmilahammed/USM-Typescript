@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edit User</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .form-input {
+      transition: all 0.3s ease;
+      border: 1px solid #e5e7eb;
+    }
+    .form-input:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+    }
+    .btn-submit {
+      transition: all 0.3s ease;
+    }
+    .btn-submit:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-gray-50">
+  <div class="container mx-auto px-4 py-8">
+    <div class="form-container bg-white rounded-lg shadow-md overflow-hidden p-6">
+      <div class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-bold text-gray-800">
+          <i class="fas fa-user-edit mr-2 text-green-500"></i>Edit User
+        </h1>
+        <a href="/users" class="text-blue-600 hover:text-blue-800 flex items-center">
+          <i class="fas fa-arrow-left mr-1"></i> Back to List
+        </a>
+      </div>
+
+      <form action="/users/<%= user._id %>/edit" method="POST" class="space-y-6">
+        <div class="space-y-2">
+          <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+          <div class="mt-1 relative rounded-md shadow-sm">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <i class="fas fa-user text-gray-400"></i>
+            </div>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required
+              value="<%= user.name %>"
+              class="form-input py-2 pl-10 block w-full rounded-md"
+              placeholder="John Doe"
+            >
+          </div>
+        </div>
+
+        <div class="space-y-2">
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <div class="mt-1 relative rounded-md shadow-sm">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <i class="fas fa-envelope text-gray-400"></i>
+            </div>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required
+              value="<%= user.email %>"
+              class="form-input py-2 pl-10 block w-full rounded-md"
+              placeholder="john@example.com"
+            >
+          </div>
+        </div>
+
+        <div class="flex justify-end pt-4 space-x-4">
+          <a 
+            href="/users" 
+            class="text-gray-600 hover:text-gray-800 px-4 py-2 rounded-md border border-gray-300 flex items-center"
+          >
+            <i class="fas fa-times mr-2"></i> Cancel
+          </a>
+          <button 
+            type="submit" 
+            class="btn-submit bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-md flex items-center"
+          >
+            <i class="fas fa-save mr-2"></i> Update User
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Optional: Toastr for messages -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('success')) {
+      toastr.success(urlParams.get('success'));
+    }
+    if (urlParams.has('error')) {
+      toastr.error(urlParams.get('error'));
+    }
+  </script>
+</body>
+</html>
