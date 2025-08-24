@@ -14,6 +14,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteUserPost = exports.deleteUser = exports.updateUser = exports.showedit = exports.addUser = exports.showAddUserForm = exports.showUsers = void 0;
 const user_models_1 = __importDefault(require("../models/user.models"));
+
+
 const showUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const users = yield user_models_1.default.find();
@@ -25,6 +27,8 @@ const showUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.showUsers = showUsers;
+
+
 const showAddUserForm = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const users = yield user_models_1.default.find();
@@ -35,6 +39,7 @@ const showAddUserForm = (req, res) => __awaiter(void 0, void 0, void 0, function
     }
 });
 exports.showAddUserForm = showAddUserForm;
+
 const addUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { name, email } = req.body;
@@ -52,6 +57,7 @@ const addUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.addUser = addUser;
+
 const showedit = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user = yield user_models_1.default.findById(req.params.id);
@@ -66,6 +72,7 @@ const showedit = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.showedit = showedit;
+
 const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
@@ -82,6 +89,7 @@ const updateUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.updateUser = updateUser;
+
 const deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;
@@ -96,6 +104,7 @@ const deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.deleteUser = deleteUser;
+
 const deleteUserPost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id } = req.params;

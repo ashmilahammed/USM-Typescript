@@ -54,7 +54,7 @@
               name="name"
               required
               class="form-input py-2 pl-10 block w-full rounded-md"
-              placeholder="John Doe"
+              placeholder=""
             >
           </div>
         </div>
@@ -71,7 +71,7 @@
               name="email"
               required
               class="form-input py-2 pl-10 block w-full rounded-md"
-              placeholder="john@example.com"
+              placeholder=""
             >
           </div>
         </div>
@@ -112,19 +112,19 @@
           throw new Error(result.error || 'Failed to add user');
         }
 
-        // Show success alert
+        
         Swal.fire({
           icon: 'success',
           title: 'Success!',
           text: result.success || 'User added successfully',
           confirmButtonText: 'OK'
         }).then(() => {
-          // Redirect to users list after success
+         
           window.location.href = '/users';
         });
 
       } catch (error) {
-        // Show error alert
+       
         Swal.fire({
           icon: 'error',
           title: 'Error!',
