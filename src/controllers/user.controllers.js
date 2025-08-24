@@ -8,12 +8,14 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteUserPost = exports.deleteUser = exports.updateUser = exports.showedit = exports.addUser = exports.showAddUserForm = exports.showUsers = void 0;
 const user_models_1 = __importDefault(require("../models/user.models"));
+
 
 
 const showUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -29,6 +31,7 @@ const showUsers = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 exports.showUsers = showUsers;
 
 
+
 const showAddUserForm = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const users = yield user_models_1.default.find();
@@ -39,6 +42,8 @@ const showAddUserForm = (req, res) => __awaiter(void 0, void 0, void 0, function
     }
 });
 exports.showAddUserForm = showAddUserForm;
+
+
 
 const addUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
